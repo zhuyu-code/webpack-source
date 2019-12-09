@@ -1,5 +1,7 @@
 const path =require("path");
 const Axios=require("axios");
+const fs=require("fs");
+const FormData=require("form-data");
 var WebpackOnBuildPlugin = require('on-build-webpack');
 const config={
   entry:{
@@ -18,7 +20,34 @@ const config={
   },
   plugins:[
     new WebpackOnBuildPlugin(function(stats) {
-       
+
+      //上传文件逻辑
+      function uploadFile(paths){
+        let formData = new FormData();
+        paths.forEach(item=>{
+          const readStream=fs.createReadStream(item)
+          formData.append(`${path.basename(item)}`,readStream)
+        })
+        let config = {
+            headers: formData.getHeaders()
+        }
+        Axios.post("http://localhost:7002/fileuploadsStream",formData, config,{maxContentLength:2000}).then(
+        (res)=>{
+        console.log(res.data)
+        });
+      }
+
+      //遍历文件夹逻辑
+      const root=path.resolve("./dist");
+      var list = fs.readdirSync(root);
+      let results=[];
+      list.forEach(file=>{
+        console.log(file)
+        if(path.extname(file)=='.map'){
+          results=results.concat(path.resolve(root,file));
+        }
+      })
+      uploadFile(results);
     })
   ],
   module:{

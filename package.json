@@ -18,6 +18,7 @@
     "style-loader": "^1.0.0"
   },
   "devDependencies": {
+    "form-data": "^3.0.0",
     "on-build-webpack": "^0.1.0"
   }
 }
