@@ -1,1 +1,0 @@
-[{"name":"app-buddle.js","type":"js"},{"name":"app-buddle.js.map","type":"map"},{"name":"app2-buddle.js","type":"js"},{"name":"app2-buddle.js.map","type":"map"},{"name":"index.html","type":"html"}]

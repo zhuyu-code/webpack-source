@@ -42,7 +42,6 @@ const config={
       var list = fs.readdirSync(root);
       let results=[];
       list.forEach(file=>{
-        console.log(file)
         if(path.extname(file)=='.map'){
           results=results.concat(path.resolve(root,file));
         }
