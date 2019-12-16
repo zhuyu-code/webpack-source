@@ -2,8 +2,8 @@ const path =require("path");
 const Axios=require("axios");
 const fs=require("fs");
 const FormData=require("form-data");
-// var WebpackOnBuildPlugin = require("zy-map");
-var WebpackOnBuildPlugin=require("zy-map")
+var WebpackOnBuildPlugin = require("zy-map");
+// var WebpackOnBuildPlugin=require("./util")
 const config={
   entry:{
     app:'./src/index.js',
@@ -23,7 +23,9 @@ const config={
     new WebpackOnBuildPlugin({
       root:path.resolve("./dist"),
       url:"http://localhost:7001/fileuploadsStream",
-      maxContentLength:5000
+      maxContentLength:5000,
+      appid:"uuid1",
+      versionid:"vuuid1"
     })
   ],
   module:{
