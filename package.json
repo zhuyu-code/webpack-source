@@ -17,7 +17,7 @@
     "html-loader": "^0.5.5",
     "source-map": "^0.7.3",
     "style-loader": "^1.0.0",
-    "zy-map": "^1.0.6",
+    "zy-map": "^1.0.7",
     "zy-upload-error": "^1.0.3"
   },
   "devDependencies": {

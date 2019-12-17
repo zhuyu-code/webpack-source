@@ -14,7 +14,7 @@ const config={
     filename:'[name]-buddle.js',//使用name由于多入口不会引起冲突
     path:path.resolve(__dirname,'../dist')//必须为绝对路径
   },
-  devtool:'source-map',
+  devtool:'hidden-source-map',//使用隐藏source-map不会被浏览器发现路径
   devServer:{
     contentBase:"dist",
     overlay:true
