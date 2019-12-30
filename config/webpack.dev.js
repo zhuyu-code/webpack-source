@@ -2,8 +2,8 @@ const path =require("path");
 const Axios=require("axios");
 const fs=require("fs");
 const FormData=require("form-data");
-var WebpackOnBuildPlugin = require("zy-map");
-// var WebpackOnBuildPlugin=require("./util")
+// var WebpackOnBuildPlugin = require("zy-map");
+var WebpackOnBuildPlugin=require("./souremap")
 const config={
   entry:{
     app:'./src/index.js',
@@ -14,7 +14,7 @@ const config={
     filename:'[name]-buddle.js',//使用name由于多入口不会引起冲突
     path:path.resolve(__dirname,'../dist')//必须为绝对路径
   },
-  devtool:'hidden-source-map',//使用隐藏source-map不会被浏览器发现路径
+  devtool:'source-map',//使用隐藏source-map不会被浏览器发现路径
   devServer:{
     contentBase:"dist",
     overlay:true
@@ -22,10 +22,11 @@ const config={
   plugins:[
     new WebpackOnBuildPlugin({
       root:path.resolve("./dist"),
-      url:"http://localhost:7001/fileuploadsStream",
+      url:"http://122.51.175.158:7001/fileuploadsStreams",
       maxContentLength:5000,
-      appid:"uuid1",
-      versionid:"vuuid1"
+      projectId:'1a88c60-2844-11ea-8724-fd618e1b67f1',
+      versionName:'2.0.4',
+      versionDesc:'这个版本主要做前前端联调'
     })
   ],
   module:{
