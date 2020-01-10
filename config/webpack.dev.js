@@ -2,8 +2,8 @@ const path =require("path");
 const Axios=require("axios");
 const fs=require("fs");
 const FormData=require("form-data");
-// var WebpackOnBuildPlugin = require("zy-map");
-var WebpackOnBuildPlugin=require("./souremap")
+var WebpackOnBuildPlugin = require("zy-map");
+// var WebpackOnBuildPlugin=require("./souremap")
 const config={
   entry:{
     app:'./src/index.js',
@@ -22,11 +22,11 @@ const config={
   plugins:[
     new WebpackOnBuildPlugin({
       root:path.resolve("./dist"),
-      url:"http://122.51.175.158:7001/fileuploadsStreams",
+      url:"http://127.0.0.1:7002/fileuploadsStreams",
       maxContentLength:5000,
-      projectId:'1a88c60-2844-11ea-8724-fd618e1b67f1',
-      versionName:'2.0.4',
-      versionDesc:'这个版本主要做前前端联调'
+      projectId:'0c4a4c30-2ba7-11ea-9d85-1b9864748d81',
+      versionName:'2.0.6',
+      versionDesc:'这个版本是玩的'
     })
   ],
   module:{
